@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>疯狂竞猜</title>
+    <meta name="keywords" content="someTitle" />
+    <meta name="description" content="someTitle" />
+    <!-- SEO Meta -->
+    <meta name="applicable-device" content="pc,mobile">
+    <meta http-equiv="Cache-Control" content="no-siteapp" />
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <!-- SEO Meta End -->
+    <meta name="renderer" content="webkit" />
+    <meta name="format-detection" content="telephone=no" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no"
+    />
+    <link rel="apple-touch-icon-precomposed" href="/img/logo/120x120.png" />
+    <link rel="apple-touch-icon-precomposed" sizes="120x120" href="/img/logo/120x120.png" />
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="/img/logo/152x152.png" />
+    <link rel="apple-touch-icon-precomposed" sizes="180x180" href="/img/logo/180x180.png" />
+
+    <meta name="weixin-share-title" content="" />
+    <meta name="weixin-share-desc" content="" />
+    <meta name="weixin-share-link" content="" />
+
+    <link rel="stylesheet" href="//vipc.cn/act/css/reset.css" />
+    <link rel="stylesheet" href="./common.css" />
+
+</head>
+
+<body data-id="<%= id %>">
+    <div class="load">
+        正在生成图片...
+    </div>
+
+    <div class="shareTop">
+        长按保存图片分享
+    </div>
+
+    <section class="shareMod" style="display: none;">
+        <img class="banner" data-src="./img/test_banner.png" alt="banner">
+        <p class="name text">test</p>
+        <p class="shareText text">test</p>
+        <div class="bottom">
+            <img class="qrcode" data-src="" alt="">
+            <img class="logo" data-src="./img/logo.png" alt="">
+            <p class="qrcodeText">test</p>
+        </div>
+    </section>
+
+    <script type="text/javascript" src="//vipc.cn/js/zepto.js"></script>
+    <script type="text/javascript" src="//vipc.cn/js/underscore.js"></script>
+    <script type="text/javascript" src="//vipc.cn/js/vipc-kit.js"></script>
+    <script type="text/javascript" src="//vipc.cn/js/vipc-native-sdk.js"></script>
+    <script type="text/javascript" src="//vipc.cn/js/qrcode.js"></script>
+    <script type="text/javascript" src="//vipc.cn/act/20180117/common.js"></script>
+    <script type="text/javascript" src="//vipc.cn/act/20180117/html2canvas.min.js"></script>
+    <script type="text/javascript" src="./screenshot.js"></script>
+    <script type="text/javascript" src="./share.js"></script>
+</body>
+</html>
