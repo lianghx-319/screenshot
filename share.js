@@ -35,18 +35,32 @@ VIPC.$(function () {
     // console.log(qrcodeElement.toDataURL("image/png"));
     var shareMod = document.getElementsByClassName('shareMod')[0];
     var width = document.body.clientWidth || document.documentElement.clientWidth;
-    var height;
-    height = width * 1334 / 750;
-    shareMod.style.height = height + 'px';
+    width = width > 440 ? 440 : width;
+    var height = document.body.clientHeight || document.documentElement.clientHeight;
+    var expectedHeight = width * 1334 / 750;
+    console.log(expectedHeight);
+    if (expectedHeight > height) {
+      console.log(1)
+      var _width = height * (750 / 1334);
+      if (_width > 440) {
+        _width = 440
+      }
+      $('html').css('font-size', _width / 7.5);
+      shareMod.style.height = height + 'px';
+      shareMod.style.width = _width + 'px';
+    } else {
+      shareMod.style.height = expectedHeight + 'px';
+    }
 
     screenshot('.shareMod', {
       success: function () {
+        $(shareMod).remove();
         $shareTip.animate({ opacity: 1 }, 1500, 'ease', function () {
-          $(shareMod).remove();
           $loading.remove();
           clearInterval(timer);
         });
-      }
+      },
+      removeContainer: true
     });
   })(kitCore.qrcode({
     text: 'https://vipc.cn/act/quiz/fc49aa19-a2aa-4c3b-8597-6411ebe39719?isShare=1&from_uid=599f985d1469540017fed561',

@@ -93,13 +93,19 @@
     function html2image() {
       var canvas = document.createElement("canvas");
       var scale = DPR;
+
       var width = parent.offsetWidth;
       var height = parent.offsetHeight;
+      // var screenWidth = document.documentElement.clientWidth || document.body.clientWidth;
+      // var screenHeight = document.documentElement.clientHeight || document.body.clientHeight;
       var left = parent.offsetLeft;
+      var top = parent.offsetTop;
+      // var parentRatio = width / height;
+
       var context = canvas.getContext('2d');
       canvas.width = width * scale;
       canvas.height = height * scale;
-      context.translate(-left * scale, 0);
+      context.translate(-left * scale, -top * scale);
       context.scale(scale, scale);
 
       var config = {
@@ -116,16 +122,14 @@
           var div = document.createElement('div');
           img.src = imgUrl;
           div.className += 'screenshotWrap';
-          img.style.maxWidth = canvas.width / scale + "px";
-          img.style.maxheight = canvas.height / scale + "px";
-          // img.style.maxWidth = width + 'px';
-          // img.style.maxHeight = document.documentElement.clientHeight > height ? height + 'px' : document.documentElement.clientHeight + 'px';
+
+          img.style.width = width + "px";
+          img.style.height = height + "px";
           img.className += 'screenshotImg';
           img.onload = function () {
             renderCallback();
             div.appendChild(img);
             document.body.appendChild(div);
-            div.style.opacity = 1;
           };
 
 
@@ -138,7 +142,7 @@
       };
 
       config = Object.assign(config, options);
-
+      console.log(config);
       html2canvas(parent, config);
     }
 
